@@ -1,0 +1,14 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model HakkımızdaTablosu
+@{
+    ViewBag.Title = "AdminEditAboutUs";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AdminEditAboutUs", "Admin", FormMethod.Post))
+{
+    @Html.TextAreaFor(m=>m.Hakkımızda,new {@placeholder="Enter about us content" })
+    @Html.TextBoxFor(m=>m.Resim,new  {@place="Enter the link of photo for about us" })
+    <input type="submit" class="btn btn-danger" value="Edit" />
+}
+

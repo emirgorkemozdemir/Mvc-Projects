@@ -1,0 +1,39 @@
+﻿@using MVC_Proje.Models;
+@model URUNTABLOSU
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Ürün Ekle</h2>
+
+<form method="post">
+    <div>
+        <h3>Ürün Adı</h3>
+        @Html.TextBoxFor(k => k.URUNAD, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+
+    <div>
+        <h3>Ürün Kategorisi</h3>
+        @Html.DropDownListFor(k => k.KATEGORITABLOSU.KATEGORIID, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+
+    <div>
+        <h3>Ürün Fiyatı</h3>
+        @Html.TextBoxFor(k => k.URUNFIYAT, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+
+    <div>
+        <h3>Ürün Stoğu</h3>
+        @Html.TextBoxFor(k => k.URUNSTOK, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+
+    <div>
+        <input type="submit" class="btn btn-warning" value="Ekle" />
+    </div>
+</form>
+

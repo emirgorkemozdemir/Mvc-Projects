@@ -1,0 +1,33 @@
+﻿@using Mvc_Kütüphane.Models
+@model KütüphaneKullanıcıTablosu2
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>Giriş Yap</h2>
+    <div style="margin-top:80px">
+        @using (Html.BeginForm("Login", "User", FormMethod.Post))
+        {
+            @Html.ValidationMessageFor(m => m.GirişBilgisi)
+            @Html.TextBoxFor(m => m.GirişBilgisi, new { @class = "form-control", @placeholder = "Mail adresinizi giriniz" })
+
+            @Html.ValidationMessageFor(m => m.Şifre)
+            @Html.PasswordFor(m => m.Şifre, new { @class = "form-control", @placeholder = "Şifrenizi giriniz" })
+
+            <input type="submit" value="Giriş Yap" class="btn btn-danger" />
+        }
+    </div>
+</body>
+</html>

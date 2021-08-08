@@ -1,0 +1,34 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model List<YemekTablosu>
+@{
+    ViewBag.Title = "AdminListRecipes";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Recipe Name</th>
+            <th>Recipe Category</th>
+            <th>Recipe Added</th>
+            <th>Delete This Recipe</th>
+            <th>Edit This Recipe</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var food in Model)
+        {
+        <tr>
+            <td>@food.YemekAd</td>
+            <td>@food.KategoriTablosu.Ad</td>
+            <td>@food.EklenmeTarihi</td>
+            <td><a class="btn btn-danger" href="/Admin/AdminDeleteRecipe/@food.YemekID">Delete</a></td>
+            <td><a class="btn btn-warning" href="/Admin/AdminEditRecipe/@food.YemekID">Edit</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Admin/AdminAddRecipe" class="btn btn-danger">Add Recipe !</a>
+

@@ -1,0 +1,28 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TableCar
+@{
+    ViewBag.Title = "CarsDetail";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column;padding:5px">
+
+    <div style="margin-bottom: 100px;padding:5px">
+        @Html.DisplayTextFor(m => m.TableBrand.BrandName)
+        @Html.DisplayTextFor(m => m.CarModel)
+        @Html.DisplayTextFor(m => m.CarPrice)
+        @Html.LabelFor(m => m.CarFuelType)
+        <img src="@ViewBag.photo" />
+
+        @Html.DisplayTextFor(m => m.CarSeller)
+
+        @Html.DisplayTextFor(m => m.CarContact)
+        @Html.DisplayTextFor(m => m.CarDescription)
+
+    </div>
+
+  
+
+</div>
+
+

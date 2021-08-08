@@ -1,0 +1,33 @@
+﻿@model Mvc_Stok_Takip_Sitesi.Models.Entity.URUNTABLOSU
+@{
+    ViewBag.Title = "ÜrünGüncelleAç";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@using (Html.BeginForm("ÜrünGüncelle", "Ürünler", FormMethod.Post))
+{
+    <div>
+        Ürün ID
+        @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control" })
+    </div>
+    <div>
+        Ürün Ad
+        @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+    </div>
+    <div>
+        Ürün Kategorisi
+        @Html.DropDownListFor(m=>m.KATEGORITABLOSU.KATEGORIID,(List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+    </div>
+    <div>
+        Ürün Fiyat
+        @Html.TextBoxFor(m => m.URUNFIYAT, new { @class = "form-control" })
+    </div>
+    <div>
+        Ürün Stok
+        @Html.TextBoxFor(m => m.URUNSTOK, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-danger">Ürün Güncelle</button>
+    </div>
+}
+

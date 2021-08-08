@@ -1,0 +1,21 @@
+﻿@model Mvc_Stok_Takip_Sitesi.Models.Entity.KATEGORITABLOSU
+@{
+    ViewBag.Title = "KategoriGüncelleAç";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGüncelle", "Kategori", FormMethod.Post))
+{
+    <div>
+        Kategori ID
+        @Html.TextBoxFor(m => m.KATEGORIID, new {@class="form-control" })
+    </div>
+    <div>
+        Kategori AD
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-danger">Güncelle</button>
+    </div>
+}
+

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArabaYoutubeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TableBrand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableCar">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CarBrandID" Type="int" Nullable="false" />
+    <Property Name="CarFuelType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarDescription" Type="nvarchar(max)" />
+    <Property Name="CarContact" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CarSeller" Type="nvarchar" MaxLength="100" />
+    <Property Name="CarPhoto" Type="nvarchar(max)" />
+    <Property Name="CarPrice" Type="int" Nullable="false" />
+    <Property Name="CarConfirmation" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableContact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactMessage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContactMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserMail" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TableCar_TableBrand">
+    <End Role="TableBrand" Type="Self.TableBrand" Multiplicity="1" />
+    <End Role="TableCar" Type="Self.TableCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableBrand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="TableCar">
+        <PropertyRef Name="CarBrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ArabaYoutubeModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableBrand" EntityType="Self.TableBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableCar" EntityType="Self.TableCar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableContact" EntityType="Self.TableContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TableUser" EntityType="Self.TableUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TableCar_TableBrand" Association="Self.FK_TableCar_TableBrand">
+      <End Role="TableBrand" EntitySet="TableBrand" />
+      <End Role="TableCar" EntitySet="TableCar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

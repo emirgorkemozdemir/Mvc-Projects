@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Yemek_Sitesi_VeritabanıEntities1">
+    <EntitySetMapping Name="GününYemeğiTablosu">
+      <EntityTypeMapping TypeName="Model.GününYemeğiTablosu">
+        <MappingFragment StoreEntitySet="GününYemeğiTablosu">
+          <ScalarProperty Name="GYemekID" ColumnName="GYemekID" />
+          <ScalarProperty Name="GYemekAd" ColumnName="GYemekAd" />
+          <ScalarProperty Name="GYemekMalzeme" ColumnName="GYemekMalzeme" />
+          <ScalarProperty Name="GYemekTarif" ColumnName="GYemekTarif" />
+          <ScalarProperty Name="GYemekPuan" ColumnName="GYemekPuan" />
+          <ScalarProperty Name="GYemekTarih" ColumnName="GYemekTarih" />
+          <ScalarProperty Name="GYemekResim" ColumnName="GYemekResim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HakkımızdaTablosu">
+      <EntityTypeMapping TypeName="Model.HakkımızdaTablosu">
+        <MappingFragment StoreEntitySet="HakkımızdaTablosu">
+          <ScalarProperty Name="HakkımızdaID" ColumnName="HakkımızdaID" />
+          <ScalarProperty Name="Hakkımızda" ColumnName="Hakkımızda" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KategoriTablosu">
+      <EntityTypeMapping TypeName="Model.KategoriTablosu">
+        <MappingFragment StoreEntitySet="KategoriTablosu">
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesajTablosu">
+      <EntityTypeMapping TypeName="Model.MesajTablosu">
+        <MappingFragment StoreEntitySet="MesajTablosu">
+          <ScalarProperty Name="MesajID" ColumnName="MesajID" />
+          <ScalarProperty Name="MesajMail" ColumnName="MesajMail" />
+          <ScalarProperty Name="Mesajİçerik" ColumnName="Mesajİçerik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarifVermeTablosu">
+      <EntityTypeMapping TypeName="Model.TarifVermeTablosu">
+        <MappingFragment StoreEntitySet="TarifVermeTablosu">
+          <ScalarProperty Name="TarifID" ColumnName="TarifID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Malzeme" ColumnName="Malzeme" />
+          <ScalarProperty Name="TarifYapılış" ColumnName="TarifYapılış" />
+          <ScalarProperty Name="TarifKişi" ColumnName="TarifKişi" />
+          <ScalarProperty Name="TarifResim" ColumnName="TarifResim" />
+          <ScalarProperty Name="TarifKişiMail" ColumnName="TarifKişiMail" />
+          <ScalarProperty Name="TarifOnay" ColumnName="TarifOnay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YemekTablosu">
+      <EntityTypeMapping TypeName="Model.YemekTablosu">
+        <MappingFragment StoreEntitySet="YemekTablosu">
+          <ScalarProperty Name="YemekID" ColumnName="YemekID" />
+          <ScalarProperty Name="YemekAd" ColumnName="YemekAd" />
+          <ScalarProperty Name="Malzemeler" ColumnName="Malzemeler" />
+          <ScalarProperty Name="Tarifler" ColumnName="Tarifler" />
+          <ScalarProperty Name="Resimler" ColumnName="Resimler" />
+          <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+          <ScalarProperty Name="Puan" ColumnName="Puan" />
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YorumlarTablosu">
+      <EntityTypeMapping TypeName="Model.YorumlarTablosu">
+        <MappingFragment StoreEntitySet="YorumlarTablosu">
+          <ScalarProperty Name="YorumID" ColumnName="YorumID" />
+          <ScalarProperty Name="YorumAd" ColumnName="YorumAd" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="YorumOnay" ColumnName="YorumOnay" />
+          <ScalarProperty Name="Yorumİçerik" ColumnName="Yorumİçerik" />
+          <ScalarProperty Name="YemekID" ColumnName="YemekID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YöneticiTablosu">
+      <EntityTypeMapping TypeName="Model.YöneticiTablosu">
+        <MappingFragment StoreEntitySet="YöneticiTablosu">
+          <ScalarProperty Name="KullanıcıID" ColumnName="KullanıcıID" />
+          <ScalarProperty Name="KullanıcıAdı" ColumnName="KullanıcıAdı" />
+          <ScalarProperty Name="Şifre" ColumnName="Şifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

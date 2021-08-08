@@ -1,0 +1,24 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model List<TableCar>
+@{
+    ViewBag.Title = "AdminApproveCars";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column;padding:5px">
+    @foreach (var car in Model)
+    {
+        <div style="margin-bottom: 100px;border-bottom:1px solid black;padding:5px">
+            <h2>@car.CarModel</h2>
+            <h3>@car.TableBrand.BrandName</h3>
+            <img src="@car.CarPhoto" />
+            <h3>@car.CarPrice Tl</h3>
+            <a href="/Admin/AdminApproveCar/@car.CarID" class="btn btn-danger">Approve Car</a>
+            <a href="/Admin/AdminDeleteCar/@car.CarID" class="btn btn-danger">Delete Car</a>
+        </div>
+
+    }
+</div>
+
+
+

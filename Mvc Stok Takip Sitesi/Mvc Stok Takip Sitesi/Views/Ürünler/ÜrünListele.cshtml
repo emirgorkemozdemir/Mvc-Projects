@@ -1,0 +1,50 @@
+﻿@using Mvc_Stok_Takip_Sitesi;
+@using PagedList.Mvc
+@model PagedList.IPagedList<Mvc_Stok_Takip_Sitesi.Models.Entity.URUNTABLOSU>
+@{
+    ViewBag.Title = "ÜrünListele";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<table id="tblurun" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Ad</th>
+            <th>Kategori ID</th>
+            <th>Ürün Fiyat</th>
+            <th>Ürün Stok</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ürünler in Model)
+        {
+            <tr>
+                <td>@ürünler.URUNID</td>
+                <td>@ürünler.URUNAD</td>
+                <td>@ürünler.KATEGORITABLOSU.KATEGORIAD</td>
+                <td>@ürünler.URUNFIYAT</td>
+                <td>@ürünler.URUNSTOK</td>
+                <td><a href="/Ürünler/ÜrünSil/@ürünler.URUNID" class="btn btn-danger"> Sil </a></td>
+                <td><a href="/Ürünler/ÜrünGüncelleAç/@ürünler.URUNID" class="btn btn-info">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((PagedList.IPagedList)Model, urun => Url.Action("ÜrünListele", new { urun }))
+<a href="/Ürünler/ÜrünEkle" class="btn btn-danger">Ürün Ekle</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tblurun').DataTable();
+</script>

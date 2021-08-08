@@ -1,0 +1,16 @@
+﻿@model Mvc.Models.Classes.User
+@{
+    ViewBag.Title = "ChangeMail";
+    Layout = "~/Views/Shared/_LoggedMainLayout.cshtml";
+}
+
+<div style="display:flex;justify-content:center;align-items:center;">
+    @using (Html.BeginForm("ChangeMail", "AccountOperations", FormMethod.Post))
+    {
+        @Html.DisplayFor(k => k.UserMail);
+        @Html.TextBoxFor(k => k.UserMail, new { @class = "form-control", @placeholder = "Yeni mail adresini buraya giriniz" });
+        <input type="submit" value="Değiştir" class="btn btn-danger" />
+    }
+</div>
+
+

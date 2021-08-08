@@ -1,0 +1,24 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model TarifVermeTablosu
+@{
+    ViewBag.Title = "GiveRecipesForUsers";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+@using (Html.BeginForm("GiveRecipesForUsers", "Recipe", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.Ad, new { @placeholder = "Enter the name of recipe" })
+
+    @Html.TextAreaFor(m => m.TarifYapılış, new { @placeholder = "Enter the description of recipe" })
+
+    @Html.TextAreaFor(m => m.Malzeme, new { @placeholder = "Enter the ingredients of recipe" })
+
+    @Html.TextBoxFor(m => m.TarifKişi, new { @placeholder = "Enter your name-surname" })
+
+    @Html.TextBoxFor(m => m.TarifKişiMail, new { @placeholder = "Enter your mail adress" })
+
+    @Html.TextBoxFor(m => m.TarifResim, new { @placeholder = "Enter your recipes photo link adress" })
+
+    <input type="submit" class="btn btn-danger" value="Send Recipe !" />
+}
+

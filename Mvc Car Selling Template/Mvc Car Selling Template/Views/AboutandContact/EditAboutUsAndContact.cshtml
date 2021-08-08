@@ -1,0 +1,26 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model AboutAndContact
+@{
+    ViewBag.Title = "EditAboutUsAndContact";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column">
+    @using (Html.BeginForm("EditAboutUsAndContact", "AboutandContact", FormMethod.Post))
+    {
+        @Html.HiddenFor(m=>m.AboutID)
+        <h1>Mail Adresimiz</h1>
+        @Html.TextBoxFor(m => m.ContactMail)
+        <h1>Telefon Numaramız</h1>
+        @Html.TextBoxFor(m => m.ContactNumber)
+        <h1>Hakkımızda</h1>
+        @Html.TextBoxFor(m => m.AboutDescription)
+
+        <input  type="submit" value="Düzenle" class="btn btn-danger"/>
+    }
+
+
+</div>
+
+
+

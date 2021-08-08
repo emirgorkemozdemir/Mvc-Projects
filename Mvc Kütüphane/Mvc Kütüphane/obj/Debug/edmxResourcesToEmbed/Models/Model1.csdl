@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KütüphaneProjesiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AlınanKitapTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KitapAlınmaTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="KitabıAlanKullanıcı" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AlınanKitapAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="İadeTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kitapİade" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Kişiİade" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Tarihİade" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="KütüphaneKitapTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KitapAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SayfaSayısı" Type="Int32" Nullable="false" />
+    <Property Name="Kategori" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Yazar" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="KitapYılı" Type="Int32" Nullable="false" />
+    <Property Name="KitapAdeti" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KütüphaneKullanıcıTablosu2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GirişBilgisi" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Şifre" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Rank" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="KitapSayısı" Type="Int32" Nullable="false" />
+    <Property Name="KitapSüresi" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="KütüphaneProjesiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlınanKitapTablosu" EntityType="Self.AlınanKitapTablosu" />
+    <EntitySet Name="İadeTablosu" EntityType="Self.İadeTablosu" />
+    <EntitySet Name="KütüphaneKitapTablosu" EntityType="Self.KütüphaneKitapTablosu" />
+    <EntitySet Name="KütüphaneKullanıcıTablosu2" EntityType="Self.KütüphaneKullanıcıTablosu2" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+  </EntityContainer>
+</Schema>

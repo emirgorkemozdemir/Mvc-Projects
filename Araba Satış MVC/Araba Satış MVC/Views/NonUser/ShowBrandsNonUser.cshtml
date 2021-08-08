@@ -1,0 +1,25 @@
+﻿@using Araba_Satış_MVC.Models
+@model List<Brands>
+@{
+    ViewBag.Title = "ShowBrandsNonUsers";
+    Layout = "~/Views/Shared/MyLayoutNonUser.cshtml";
+}
+
+<div style="display:flex;flex-direction:column">
+    @{int itemsPerRow = 5;}
+    @{int i = 0; bool newRow = false;}
+    
+        @while (i < Model.Count)
+        {
+            <div style="display:flex;flex-direction:row;max-width:80vw;margin-top:25px">
+                @{newRow = true;}
+                @while (i < Model.Count && (newRow || i % itemsPerRow != 0))
+                {
+                    <div style="display:flex;flex-direction:column; border:1px solid #dadada;width:450px!important;height:200px;margin-left:20px">@Model[i].BrandName</div>
+                    i = i + 1;
+                    newRow = false;
+                }
+            </div>
+        }
+   
+</div>

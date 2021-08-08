@@ -1,0 +1,13 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TempLoginClass
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@using (Html.BeginForm("Login","User",FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.EnteredMail)
+    @Html.PasswordFor(m => m.EnteredPass)
+    <input type="submit" value="Login" class="btn btn-danger" />
+}

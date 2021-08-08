@@ -1,0 +1,17 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model GününYemeğiTablosu
+@{
+    ViewBag.Title = "AdminAddTodaysRecipe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AdminAddTodaysRecipe", "Admin", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.GYemekAd, new {@placeholder="Enter the name of recipe" })
+    @Html.TextBoxFor(m => m.GYemekMalzeme, new { @placeholder = "Enter the ingredients of recipe" })
+    @Html.TextBoxFor(m => m.GYemekTarif, new { @placeholder = "Enter the explanation of recipe" })
+    @Html.TextBoxFor(m => m.GYemekResim, new { @placeholder = "Enter the photo link of recipe" })
+    @Html.TextBoxFor(m => m.GYemekPuan, new { @placeholder = "Enter the score of recipe" })
+   <input type="submit" value="Add Todays Recipe" class="btn btn-danger" />
+}
+

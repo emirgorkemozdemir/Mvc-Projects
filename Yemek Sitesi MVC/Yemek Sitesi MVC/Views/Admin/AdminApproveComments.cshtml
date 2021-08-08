@@ -1,0 +1,43 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model List<YorumlarTablosu>
+@{
+    ViewBag.Title = "AdminApproveComments";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Comment Mail</th>
+            <th>Comment UserName</th>
+            <th>Comment Content</th>
+            <th>Comment Confirm</th>
+            <th>Confirm this Comment</th>
+        </tr>
+    </thead>
+
+    <tbody>
+       @foreach (var comment in Model)
+       {
+        <tr>
+            <td>@comment.Mail</td>
+            <td>@comment.YorumAd</td>
+            <td>@comment.Yorumİçerik</td>
+            
+                @if (@comment.YorumOnay==0)
+                {
+                   <td>False</td>
+                }
+                else
+                {
+                    <td>True</td>
+                }
+
+            <td><a href="/Admin/AdminApproveComment/@comment.YorumID">Confirm</a></td>
+
+
+        </tr>
+       }
+    </tbody>
+</table>
+

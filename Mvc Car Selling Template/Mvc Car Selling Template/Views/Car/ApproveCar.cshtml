@@ -1,0 +1,23 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model List<Cars>
+@{
+    ViewBag.Title = "ApproveCar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column">
+    @foreach (var car in Model)
+    {
+        <img src="@car.CarPhoto" style="width:600px;height:auto" />
+        <p>@car.Brands.BrandName</p>
+        <a>@car.CarModel</a>
+        <p>@car.CarPrice</p>
+        <p>@car.CarFuelType</p>
+        <p>@car.CarSeller</p>
+        <p>@car.CarContact</p>
+        <p >@car.CarDescription</p>
+        <a href="/Car/SubmitCarApprove/@car.CarID" class="btn btn-danger">Onayla</a>
+        <a href="/Car/DeleteCarApprove/@car.CarID" class="btn btn-danger">Sil</a>
+        <div style="width: 100%; height: auto; border-bottom: 1px solid #5f5f5f"></div>
+    }
+</div>

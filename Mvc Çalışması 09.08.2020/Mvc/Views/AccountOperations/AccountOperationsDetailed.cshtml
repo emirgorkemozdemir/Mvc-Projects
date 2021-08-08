@@ -1,0 +1,43 @@
+﻿@model Mvc.Models.Classes.User
+@{
+    ViewBag.Title = "AccountOperationsDetailed";
+    Layout = "~/Views/Shared/_LoggedMainLayout.cshtml";
+}
+
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center">
+    <div style="display:flex; flex-direction:row">
+        <h3>User ID:@Html.DisplayFor(k => k.UserID)</h3>
+    </div>
+
+    <div style="display:flex; flex-direction:row">
+        <h3>Name:@Html.DisplayFor(k => k.UserName)</h3>
+        <a href="/AccountOperations/ChangeName">
+            <input value="Click for change" type="button" class="btn btn-danger" />
+        </a>
+    </div>
+
+    <div style="display:flex; flex-direction:row">
+        <h3>Surname:@Html.DisplayFor(k => k.UserSurname)</h3>
+        <a href="/AccountOperations/ChangeSurname/">
+            <input value="Click for change" type="button" class="btn btn-danger" />
+        </a>
+     
+
+    </div>
+
+    <div style="display:flex; flex-direction:row">
+        <h3>Mail:@Html.DisplayFor(k => k.UserMail)</h3>
+        <a href="/AccountOperations/ChangeMail">
+            <input value="Click for change" type="button" class="btn btn-danger" />
+        </a>
+    </div>
+
+    <div style="display:flex; flex-direction:row">
+        <h3>Password:@Html.PasswordFor(k => k.UserPassword)</h3>
+        <a href="/AccountOperations/ChangePassword">
+            <input value="Click for change" type="button" class="btn btn-danger" />
+        </a>
+    </div>
+
+</div>
+

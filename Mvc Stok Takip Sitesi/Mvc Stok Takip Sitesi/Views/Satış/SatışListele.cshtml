@@ -1,0 +1,45 @@
+﻿@model Mvc_Stok_Takip_Sitesi.Models.Entity.SATISTABLOSU
+@{
+    ViewBag.Title = "SatışListele";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal1">Satış ekle</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><h2>Satış ekleme formu</h2></div>
+            </div>
+
+            <form method="post" action="SatışEkle">
+                <div class="modal-body">
+                    <div>
+                        Müşteri Seç
+                        @Html.DropDownListFor(m => m.MUSTERITABLOSU.MUSTERIID, (List<SelectListItem>)ViewBag.mstrler, new { @class = "form-control" })
+                    </div>
+                    <br />
+                    <div>
+                        Ürün seç
+                        @Html.DropDownListFor(m => m.URUNTABLOSU.URUNID, (List<SelectListItem>)ViewBag.sells, new { @class = "form-control" })
+                    </div>
+                    <br />
+                    <div>
+                        Ürün Adedi giriniz
+                       @Html.TextBoxFor(m=>m.SATISADET, new {@class="form-control" })
+                    </div>
+                    <br />
+                    <div>
+                        Ürün Fiyatı giriniz
+                        @Html.TextBoxFor(m => m.SATISFIYAT, new { @class = "form-control" })
+                    </div>
+                    <div>
+                        <button type="submit">Satışı onayla</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

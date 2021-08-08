@@ -1,0 +1,20 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model List<YemekTablosu>
+@{
+    ViewBag.Title = "ShowRecipesForUsers";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+@foreach (var recipe in Model)
+{
+    <div style="display:flex;flex-direction:column;align-items:center">
+        <h1>@recipe.KategoriTablosu.Ad</h1>
+        <h1>@recipe.YemekAd</h1>
+        <h2>@recipe.EklenmeTarihi</h2>
+        <img height="400" width="1000" src="@recipe.Resimler" />
+        <a href="/Recipe/ShowRecipeDetailsForUsers/@recipe.YemekID"><input type="button" value="See Recipe Details" /></a>
+    </div>
+}
+
+
+

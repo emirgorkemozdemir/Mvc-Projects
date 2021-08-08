@@ -1,0 +1,14 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model HakkımızdaTablosu
+@{
+    ViewBag.Title = "AboutUsAndContactForNonUser";
+    Layout = "~/Views/Shared/NonUserLayout.cshtml";
+}
+
+<h2>About Us</h2>
+
+<div style="display:flex;flex-direction:column;">
+    <img src="@ViewBag.photo" style="width:1000px;height:400px" />
+    @Html.DisplayFor(m=>m.Hakkımızda)
+</div>
+

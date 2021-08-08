@@ -1,0 +1,30 @@
+﻿@using Mvc.Models.Classes;
+@model User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Login</h2>
+
+<label>@ViewBag.VE</label>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post, null))
+{
+    
+
+    @Html.ValidationMessageFor(k => k.UserMail, "Mail adress is required to log in")
+    @Html.TextBoxFor(k => k.UserMail, new { @class = "form-control" })
+
+    <div>&nbsp;</div>
+
+    @Html.ValidationMessageFor(k => k.UserPassword, "Password is required to log in !")
+    @Html.PasswordFor(k => k.UserPassword, new { @class = "form-control" })
+
+    <div>&nbsp;</div>
+
+    <input type="submit" value="Log in" class="btn btn-danger" />
+
+
+}
+

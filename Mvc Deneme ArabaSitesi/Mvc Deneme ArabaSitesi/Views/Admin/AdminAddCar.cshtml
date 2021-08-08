@@ -1,0 +1,44 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TableCar
+@{
+    ViewBag.Title = "AdminAddCar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Add Cars</h2>
+@using (Html.BeginForm("AdminAddCar", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CarID)
+
+    @Html.ValidationMessageFor(m => m.CarBrandID)
+    @Html.DropDownListFor(m => m.CarBrandID, (List<SelectListItem>)ViewBag.lstBrands, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarModel)
+    @Html.TextBoxFor(m => m.CarModel, new { @placeholder = "Araç modelini giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarPhoto)
+    @Html.TextBoxFor(m => m.CarPhoto, new { @placeholder = "Araç fotoğraf linkini giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarPrice)
+    @Html.TextBoxFor(m => m.CarPrice, new { @placeholder = "Araç fiyatını giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarFuelType)
+    @Html.TextBoxFor(m => m.CarFuelType, new { @placeholder = "Araç yakıt tipini giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarDescription)
+    @Html.TextAreaFor(m => m.CarDescription, new { @placeholder = "Araç açıklamasını giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarSeller)
+    @Html.TextBoxFor(m => m.CarSeller, new { @placeholder = "Adınızı Soyadınızı giriniz", @class = "form-control" })
+
+    @Html.ValidationMessageFor(m => m.CarContact)
+    @Html.TextBoxFor(m => m.CarContact, new { @placeholder = "Telefon numarınızı giriniz", @class = "form-control" })
+
+
+    <input type="submit" class="btn btn-danger" value="Add" />
+}
+
+
+

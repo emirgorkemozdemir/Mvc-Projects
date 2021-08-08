@@ -1,0 +1,18 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model List<TableCar>
+@{
+    ViewBag.Title = "ListCarsForBrands";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column;margin-bottom:100px;border-bottom:1px solid black;padding:5px">
+    @foreach (var car in Model)
+    {
+        <h2>@car.CarModel</h2>
+        <h3>@car.TableBrand.BrandName</h3>
+        <img src="@car.CarPhoto" />
+        <h3>@car.CarPrice Tl</h3>
+        <a href="/Cars/CarsDetail/@car.CarID" class="btn btn-danger">See Details</a>
+    }
+</div>
+

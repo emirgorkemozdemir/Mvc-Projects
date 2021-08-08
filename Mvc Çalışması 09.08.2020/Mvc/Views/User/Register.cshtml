@@ -1,0 +1,40 @@
+﻿@using Mvc.Models.Classes;
+@model User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post, null))
+{
+    @Html.ValidationMessageFor(k => k.UserName)
+    @Html.TextBoxFor(k => k.UserName, new { @class = "form-control", @placeholder = "Enter your name" })
+
+    <div>&nbsp;</div>
+
+    @Html.ValidationMessageFor(k => k.UserSurname)
+    @Html.TextBoxFor(k => k.UserSurname, new { @class = "form-control", @placeholder = "Enter your surname" })
+
+    <div>&nbsp;</div>
+
+    @Html.ValidationMessageFor(k => k.UserMail)
+    @Html.TextBoxFor(k => k.UserMail, new { @class = "form-control", @placeholder = "Enter your mail adress" })
+
+    <div>&nbsp;</div>
+
+    @Html.ValidationMessageFor(k => k.UserPassword)
+    @Html.PasswordFor(k => k.UserPassword, new { @class = "form-control", @placeholder = "Enter your password" });
+
+    <div>&nbsp;</div>
+
+    @Html.ValidationMessageFor(k => k.ComparePassword)
+    @Html.PasswordFor(k => k.ComparePassword, new { @class = "form-control", @placeholder = "Re-enter your password" })
+
+    <div>&nbsp;</div>
+
+
+    <input type="submit" value="Register" class="btn btn-danger" />
+}
+

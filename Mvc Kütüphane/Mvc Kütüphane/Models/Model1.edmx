@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KütüphaneProjesiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlınanKitapTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitapAlınmaTarihi" Type="date" Nullable="false" />
+          <Property Name="KitabıAlanKullanıcı" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="AlınanKitapAdı" Type="nchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="İadeTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kitapİade" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Kişiİade" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Tarihİade" Type="date" />
+        </EntityType>
+        <EntityType Name="KütüphaneKitapTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitapAdı" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="SayfaSayısı" Type="int" Nullable="false" />
+          <Property Name="Kategori" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Yazar" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="KitapYılı" Type="int" Nullable="false" />
+          <Property Name="KitapAdeti" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KütüphaneKullanıcıTablosu2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirişBilgisi" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Şifre" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="Ad" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyad" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Rank" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="KitapSayısı" Type="int" Nullable="false" />
+          <Property Name="KitapSüresi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="KütüphaneProjesiModelStoreContainer">
+          <EntitySet Name="AlınanKitapTablosu" EntityType="Self.AlınanKitapTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="İadeTablosu" EntityType="Self.İadeTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KütüphaneKitapTablosu" EntityType="Self.KütüphaneKitapTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KütüphaneKullanıcıTablosu2" EntityType="Self.KütüphaneKullanıcıTablosu2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KütüphaneProjesiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlınanKitapTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitapAlınmaTarihi" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KitabıAlanKullanıcı" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlınanKitapAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="İadeTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kitapİade" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Kişiİade" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Tarihİade" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="KütüphaneKitapTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitapAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SayfaSayısı" Type="Int32" Nullable="false" />
+          <Property Name="Kategori" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Yazar" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KitapYılı" Type="Int32" Nullable="false" />
+          <Property Name="KitapAdeti" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KütüphaneKullanıcıTablosu2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirişBilgisi" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Şifre" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Rank" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="KitapSayısı" Type="Int32" Nullable="false" />
+          <Property Name="KitapSüresi" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="KütüphaneProjesiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlınanKitapTablosu" EntityType="Self.AlınanKitapTablosu" />
+          <EntitySet Name="İadeTablosu" EntityType="Self.İadeTablosu" />
+          <EntitySet Name="KütüphaneKitapTablosu" EntityType="Self.KütüphaneKitapTablosu" />
+          <EntitySet Name="KütüphaneKullanıcıTablosu2" EntityType="Self.KütüphaneKullanıcıTablosu2" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KütüphaneProjesiModelStoreContainer" CdmEntityContainer="KütüphaneProjesiEntities">
+          <EntitySetMapping Name="AlınanKitapTablosu">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.AlınanKitapTablosu">
+              <MappingFragment StoreEntitySet="AlınanKitapTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KitapAlınmaTarihi" ColumnName="KitapAlınmaTarihi" />
+                <ScalarProperty Name="KitabıAlanKullanıcı" ColumnName="KitabıAlanKullanıcı" />
+                <ScalarProperty Name="AlınanKitapAdı" ColumnName="AlınanKitapAdı" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="İadeTablosu">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.İadeTablosu">
+              <MappingFragment StoreEntitySet="İadeTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kitapİade" ColumnName="Kitapİade" />
+                <ScalarProperty Name="Kişiİade" ColumnName="Kişiİade" />
+                <ScalarProperty Name="Tarihİade" ColumnName="Tarihİade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KütüphaneKitapTablosu">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.KütüphaneKitapTablosu">
+              <MappingFragment StoreEntitySet="KütüphaneKitapTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KitapAdı" ColumnName="KitapAdı" />
+                <ScalarProperty Name="SayfaSayısı" ColumnName="SayfaSayısı" />
+                <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="KitapYılı" ColumnName="KitapYılı" />
+                <ScalarProperty Name="KitapAdeti" ColumnName="KitapAdeti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KütüphaneKullanıcıTablosu2">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.KütüphaneKullanıcıTablosu2">
+              <MappingFragment StoreEntitySet="KütüphaneKullanıcıTablosu2">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GirişBilgisi" ColumnName="GirişBilgisi" />
+                <ScalarProperty Name="Şifre" ColumnName="Şifre" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.Settings">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KitapSayısı" ColumnName="KitapSayısı" />
+                <ScalarProperty Name="KitapSüresi" ColumnName="KitapSüresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KütüphaneProjesiModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model YöneticiTablosu
+@{
+    ViewBag.Title = "UserSettings";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+@using (Html.BeginForm("UserSettings", "User", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.KullanıcıID)
+    @Html.HiddenFor(m=>m.KullanıcıAdı)
+    @Html.HiddenFor(m=>m.Şifre)
+    @Html.PasswordFor(m => m.oldPassword, new { @placeholder = "Enter your old password" })
+    @Html.PasswordFor(m => m.NewPassword, new { @placeholder = "Enter your new password" })
+    <input type="submit" class="btn btn-danger" value="Change password" />
+}
+

@@ -1,0 +1,16 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model List<TableBrand>
+@{
+    ViewBag.Title = "AdminListBrands";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@foreach (var brand in Model)
+{
+    <div style="display:flex;flex-direction:column;">
+        <h3>@brand.BrandName</h3>
+        <a href="/Admin/AdminDeleteBrand/@brand.BrandID" class="btn btn-danger">Delete brand</a>
+        <a class="btn btn-danger">Edit brand</a>
+    </div>
+}
+

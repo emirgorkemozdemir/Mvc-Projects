@@ -1,0 +1,39 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model List<TarifVermeTablosu>
+@{
+    ViewBag.Title = "AdminApproveRecipesFromUsers";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Recipe Name</th>
+            <th>Recipe Ingredients</th>
+            <th>Recipe How To Make ?</th>
+            <th>Recipe Confirmation</th>
+            <th>See Recipe Full Details</th>
+            <th>Confirm Recipe</th>
+            <th>Unconfirm Recipe</th>
+            <th>Delete This Recipe</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var recipe in Model)
+        {
+        <tr>
+            <td>@recipe.Ad</td>
+            <td>@recipe.Malzeme</td>
+            <td>@recipe.TarifYapılış</td>
+            <td>@recipe.TarifOnay</td>
+            <td><a class="btn btn-danger" href="/Admin/AdminSeeRecipeFromUsersDetail/@recipe.TarifID">See details</a></td>
+            <td><a class="btn btn-warning" href="/Admin/AdminConfirmRecipe/@recipe.TarifID">Confirm</a></td>
+            <td><a class="btn btn-info" href="/Admin/AdminUnconfirmRecipe/@recipe.TarifID">Unconfirm</a></td>
+            <td><a class="btn btn-success" href="/Admin/AdminDeleteRecipeFromUser/@recipe.TarifID">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

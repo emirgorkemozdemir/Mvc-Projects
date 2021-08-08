@@ -1,0 +1,22 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model List<TableContact>
+@{
+    ViewBag.Title = "AdminSeeMessages";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Messages</h2>
+
+<div>
+    @foreach (var msg in Model)
+    {
+    <div style="display:flex;flex-direction:column;margin-bottom:50px">
+        <input type="hidden" value="@msg.ContactID" readonly="readonly" class="form-control" />
+        <input type="text" value="@msg.ContactMail" readonly="readonly" class="form-control"/>
+        <input type="text" value="@msg.ContactName" readonly="readonly" class="form-control"/>
+        <textarea readonly="readonly">@msg.ContactMessage</textarea>
+       <a href="/Admin/AdminDeleteMessage/@msg.ContactID" class="btn btn-danger">Delete</a> 
+    </div>
+    }
+</div>
+

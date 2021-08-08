@@ -1,0 +1,44 @@
+﻿@using Mvc_Stok_Takip_Sitesi;
+@using PagedList.Mvc
+@model PagedList.IPagedList<Mvc_Stok_Takip_Sitesi.Models.Entity.KATEGORITABLOSU>
+@{
+    ViewBag.Title = "KategoriListele";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriListele", "Kategori", FormMethod.Get))
+{
+  <p>
+      Kategori Adı : @Html.TextBox("ps","")
+      <button type="submit" class="btn btn-warning">Ara</button>
+  </p>
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Kategori ID</th>
+            <th>Kategori Ad</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Pop up ile sil</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach(var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.KATEGORIID</td>
+                <td>@ktgr.KATEGORIAD</td>
+                <td><a href="/Kategori/KategoriSil/@ktgr.KATEGORIID" class="btn btn-danger"> Sil </a></td>
+                <td><a href="/Kategori/KategoriGüncelleAç/@ktgr.KATEGORIID" class="btn btn-info">Güncelle</a></td>
+                <td>@Html.ActionLink("Sil Butonu" , "KategoriSil" , new { id=ktgr.KATEGORIID } , new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten Silmek istediğinize emin misiniz ? ')" })  </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@Html.PagedListPager((PagedList.IPagedList)Model , kategori => Url.Action("KategoriListele" , new { kategori}))
+<a href="/Kategori/KategoriEkle" class="btn btn-danger">Kategori Ekle</a>
+

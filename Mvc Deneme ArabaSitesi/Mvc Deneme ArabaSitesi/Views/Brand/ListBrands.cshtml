@@ -1,0 +1,16 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model List<TableBrand>
+@{
+    ViewBag.Title = "ListBrands";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<h2>Choose Brand</h2>
+<div style="display:flex;flex-direction:column;">
+    @foreach (var brand in Model)
+    {
+        <a href="/Cars/ListCarsForBrands/@brand.BrandID">@brand.BrandName</a>
+    }
+
+</div>
+

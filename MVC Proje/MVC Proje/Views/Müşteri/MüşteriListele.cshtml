@@ -1,0 +1,35 @@
+﻿@using MVC_Proje.Models;
+@model List<MUSTERITABLOSU>
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Müşteri Adı</th>
+            <th>Müşteri Soyadı</th>
+            <th>Müşteri Sil</th>
+            <th>Müşteri Güncelle</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var customer in Model)
+        {
+        <tr>
+            <td>@customer.MUSTERIID</td>
+            <td>@customer.MUSTERIAD</td>
+            <td>@customer.MUSTERISOYAD</td>
+            <td><a href="/Müşteri/MüşteriSil/@customer.MUSTERIID">Sil</a></td>
+            <td><a href="/Müşteri/MListByID/@customer.MUSTERIID">Güncelle</a></td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Müşteri/MüşteriEkle" class="btn btn-danger">Müşteri ekleme sayfasına git</a>

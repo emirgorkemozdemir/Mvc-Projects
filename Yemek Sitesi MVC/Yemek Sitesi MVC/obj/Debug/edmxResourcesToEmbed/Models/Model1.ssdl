@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GününYemeğiTablosu">
+    <Key>
+      <PropertyRef Name="GYemekID" />
+    </Key>
+    <Property Name="GYemekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GYemekAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GYemekMalzeme" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GYemekTarif" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GYemekPuan" Type="tinyint" />
+    <Property Name="GYemekTarih" Type="date" Nullable="false" />
+    <Property Name="GYemekResim" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HakkımızdaTablosu">
+    <Key>
+      <PropertyRef Name="HakkımızdaID" />
+    </Key>
+    <Property Name="HakkımızdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hakkımızda" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resim" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KategoriTablosu">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adet" Type="int" />
+    <Property Name="Resim" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MesajTablosu">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MesajMail" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mesajİçerik" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TarifVermeTablosu">
+    <Key>
+      <PropertyRef Name="TarifID" />
+    </Key>
+    <Property Name="TarifID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Malzeme" Type="nvarchar(max)" />
+    <Property Name="TarifYapılış" Type="nvarchar(max)" />
+    <Property Name="TarifKişi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TarifResim" Type="nvarchar(max)" />
+    <Property Name="TarifKişiMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="TarifOnay" Type="bit" />
+  </EntityType>
+  <EntityType Name="YemekTablosu">
+    <Key>
+      <PropertyRef Name="YemekID" />
+    </Key>
+    <Property Name="YemekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YemekAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Malzemeler" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tarifler" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resimler" Type="nvarchar(max)" />
+    <Property Name="EklenmeTarihi" Type="smalldatetime" Nullable="false" />
+    <Property Name="Puan" Type="tinyint" />
+    <Property Name="KategoriID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YorumlarTablosu">
+    <Key>
+      <PropertyRef Name="YorumID" />
+    </Key>
+    <Property Name="YorumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YorumAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tarih" Type="smalldatetime" Nullable="false" />
+    <Property Name="YorumOnay" Type="int" Nullable="false" />
+    <Property Name="Yorumİçerik" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="YemekID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YöneticiTablosu">
+    <Key>
+      <PropertyRef Name="KullanıcıID" />
+    </Key>
+    <Property Name="KullanıcıID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullanıcıAdı" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Şifre" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_YemekTablosu_KategoriTablosu1">
+    <End Role="KategoriTablosu" Type="Self.KategoriTablosu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="YemekTablosu" Type="Self.YemekTablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KategoriTablosu">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="YemekTablosu">
+        <PropertyRef Name="KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YorumlarTablosu_YemekTablosu1">
+    <End Role="YemekTablosu" Type="Self.YemekTablosu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="YorumlarTablosu" Type="Self.YorumlarTablosu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YemekTablosu">
+        <PropertyRef Name="YemekID" />
+      </Principal>
+      <Dependent Role="YorumlarTablosu">
+        <PropertyRef Name="YemekID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="GününYemeğiTablosu" EntityType="Self.GününYemeğiTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HakkımızdaTablosu" EntityType="Self.HakkımızdaTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KategoriTablosu" EntityType="Self.KategoriTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MesajTablosu" EntityType="Self.MesajTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarifVermeTablosu" EntityType="Self.TarifVermeTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YemekTablosu" EntityType="Self.YemekTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YorumlarTablosu" EntityType="Self.YorumlarTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YöneticiTablosu" EntityType="Self.YöneticiTablosu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_YemekTablosu_KategoriTablosu1" Association="Self.FK_YemekTablosu_KategoriTablosu1">
+      <End Role="KategoriTablosu" EntitySet="KategoriTablosu" />
+      <End Role="YemekTablosu" EntitySet="YemekTablosu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YorumlarTablosu_YemekTablosu1" Association="Self.FK_YorumlarTablosu_YemekTablosu1">
+      <End Role="YemekTablosu" EntitySet="YemekTablosu" />
+      <End Role="YorumlarTablosu" EntitySet="YorumlarTablosu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,16 @@
+﻿@model Mvc.Models.Classes.User
+@{
+    ViewBag.Title = "MainPageUser";
+    Layout = "~/Views/Shared/_LoggedMainLayout.cshtml";
+}
+
+    <div style="display:flex; justify-content:center; align-items:center;">
+        <h2>
+            Welcome @Html.DisplayFor(k => k.UserName, new { @style = "form-control" })
+            @Html.DisplayFor(k => k.UserSurname, new { @style = "form-control" })
+        </h2>
+    </div>
+   
+
+
+

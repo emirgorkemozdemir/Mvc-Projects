@@ -1,0 +1,28 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model YemekTablosu
+@{
+    ViewBag.Title = "ShowRecipeDetailsForUsers";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+
+<div style="display:flex;flex-direction:column;align-items:center">
+    @Html.DisplayFor(m => m.KategoriTablosu.Ad)
+    @Html.DisplayFor(m => m.YemekAd)
+    @Html.DisplayFor(m => m.EklenmeTarihi)
+    <img height="400" width="1000" src="@ViewBag.photo" />
+    @Html.TextAreaFor(m => m.Malzemeler, new { @style = "Width:600px;Height:200px" })
+    @Html.TextAreaFor(m => m.Tarifler, new { @style = "Width:600px;Height:200px" })
+  
+</div>
+
+@using (Html.BeginForm("SendComment", "Recipe", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.YemekID)
+    @Html.TextAreaFor(m => m.tempCommentContent, new { @placeholder = "Enter your comment" })
+    @Html.TextAreaFor(m => m.tempCommentMail, new { @placeholder = "Enter your mail adress" })
+    <input type="submit" class="btn btn-danger" value="Send Comment" />
+}
+
+
+

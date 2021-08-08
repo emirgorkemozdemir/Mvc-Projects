@@ -1,0 +1,32 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model List<Mvc_Car_Selling_Template.Models.Cars>
+@{
+    ViewBag.Title = "ListCarsAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Araba Markası</th>
+            <th>Araba Modeli</th>
+            <th>Açıklama</th>
+            <th>Sil</th>
+            <th>Düzenle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var car in Model)
+        {
+        <tr>
+            <td>@car.Brands.BrandName</td>
+            <td>@car.CarModel</td>
+            <td>@car.CarDescription</td>
+            <td><a href="/Car/DeleteCarAdmin/@car.CarID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Car/EditCarAdmin/@car.CarID" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

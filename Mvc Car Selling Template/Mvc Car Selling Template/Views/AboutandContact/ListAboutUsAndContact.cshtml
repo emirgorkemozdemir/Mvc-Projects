@@ -1,0 +1,17 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model AboutAndContact
+@{
+    ViewBag.Title = "ListAboutUsAndContact";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column">
+    <h1>Mail Adresimiz</h1>
+    @Html.TextBoxFor(m => m.ContactMail, new { @readonly = "readonly" })
+    <h1>Telefon Numaramız</h1>
+    @Html.TextBoxFor(m => m.ContactNumber, new { @readonly = "readonly" })
+    <h1>Hakkımızda</h1>
+    @Html.TextBoxFor(m => m.AboutDescription, new { @readonly = "readonly" })
+
+</div>
+

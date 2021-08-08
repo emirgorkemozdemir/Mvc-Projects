@@ -1,0 +1,21 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model Cars
+@{
+    ViewBag.Title = "DetailedCarByID";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column">
+    <img src="@ViewBag.carphoto" style="width:600px;height:auto" />
+    @Html.TextBoxFor(m => m.CarModel, new {@readonly="readonly" })
+    @Html.TextBoxFor(m => m.CarPrice, new { @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.Brands.BrandName, new { @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.CarFuelType, new { @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.CarContact, new { @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.CarSeller, new { @readonly = "readonly" })
+    @Html.TextBoxFor(m => m.CarDescription, new { @readonly = "readonly" })
+
+</div>
+
+
+

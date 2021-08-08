@@ -1,0 +1,24 @@
+﻿@model Mvc_Stok_Takip_Sitesi.Models.Entity.MUSTERITABLOSU
+@{
+    ViewBag.Title = "MüşteriGüncelleAç";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@using (Html.BeginForm("MüşteriGüncelle", "Müşteriler", FormMethod.Post))
+{
+    <div>
+        Müşteri ID
+        @Html.TextBoxFor(m => m.MUSTERIID ,new { @class = "form-control" })
+    </div>
+    <div>
+        Müşteri Ad
+        @Html.TextBoxFor(m => m.MUSTERIAD ,new { @class = "form-control" })
+    </div>
+    <div>
+        Müşteri Soyad
+        @Html.TextBoxFor(m => m.MUSTERISOYAD ,new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-danger">Müşteri Güncelle</button>
+    </div>
+}

@@ -1,0 +1,40 @@
+﻿@using Mvc_Stok_Takip_Sitesi;
+@using PagedList.Mvc
+@model PagedList.IPagedList<Mvc_Stok_Takip_Sitesi.Models.Entity.MUSTERITABLOSU>
+@{
+    ViewBag.Title = "MüşteriListele";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      
+            @foreach (var mstr in Model)
+            {
+        <tr>
+            <td>@mstr.MUSTERIID</td>
+            <td>@mstr.MUSTERIAD</td>
+            <td>@mstr.MUSTERISOYAD</td>
+            <td><a href="/Müşteriler/MüşteriSil/@mstr.MUSTERIID" class="btn btn-danger"> Sil </a></td>
+            <td><a href="/Müşteriler/MüşteriGüncelleAç/@mstr.MUSTERIID" class="btn btn-info">Güncelle</a></td>
+        </tr>
+               
+            }
+        
+    </tbody>
+
+</table>
+@Html.PagedListPager((PagedList.IPagedList)Model , mstr => Url.Action("MüşteriListele", new { mstr}))
+<a href="/Müşteriler/MüşteriEkle" class="btn btn-danger">Müşteri ekle</a>
+

@@ -1,0 +1,17 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model YemekTablosu
+@{
+    ViewBag.Title = "AdminAddRecipe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AdminAddRecipe", "Admin", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.YemekAd, new { @placeholder = "Enter the name of recipe" })
+    @Html.DropDownListFor(m=>m.KategoriID,new SelectList(ViewBag.clist,"KategoriID","Ad"))
+    @Html.TextAreaFor(m => m.Malzemeler, new { @placeholder = "Enter the ingredients of recipe" })
+    @Html.TextAreaFor(m => m.Tarifler, new { @placeholder = "Enter how to make this recipe" })
+    @Html.TextBoxFor(m => m.Resimler, new { @placeholder = "Enter the photo link of this recipe" })
+    <input type="submit" class="btn btn-danger" value="Save the recipe" />
+}
+

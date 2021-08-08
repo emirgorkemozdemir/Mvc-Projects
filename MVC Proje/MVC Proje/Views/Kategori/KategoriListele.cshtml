@@ -1,0 +1,31 @@
+﻿@using MVC_Proje.Models
+@model List<KATEGORITABLOSU>
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kategori Adı</th>
+            <th>Kategoriyi Sil</th>
+            <th>Kategoriyi Güncelle</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+        <tr>
+            <td>@ktgr.KATEGORIID</td>
+            <td>@ktgr.KATEGORIAD</td>
+            <td><a href="/Kategori/KategoriDelete/@ktgr.KATEGORIID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kategori/ListByID/@ktgr.KATEGORIID" class="btn btn-warning"></a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Kategori/KategoriEkle" class="btn btn-danger">Kategori ekleme sayfasına git</a>

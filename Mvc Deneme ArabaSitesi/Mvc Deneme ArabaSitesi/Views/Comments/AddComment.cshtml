@@ -1,0 +1,14 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TableContact
+@{
+    ViewBag.Title = "AddComment";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddComment","Comments",FormMethod.Post)) 
+{ 
+    @Html.TextBoxFor(m=>m.ContactName,new {@placeholder="Adınızı giriniz" })
+    @Html.TextBoxFor(m=>m.ContactMail,new {@placeholder="Mail adresinizi giriniz" })
+    @Html.TextAreaFor(m=>m.ContactMessage,new {@placeholder="Mesajınızı giriniz" })
+    <input type="submit" />
+}

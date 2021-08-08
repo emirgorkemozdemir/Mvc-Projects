@@ -1,0 +1,19 @@
+﻿@using MVC_Proje;
+@model MVC_Proje.Models.KATEGORITABLOSU
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>Kategori Ekle</h2>
+<form method="post">
+    <div>
+        <h3>Kategori Adı</h3>
+        @Html.TextBoxFor(k => k.KATEGORIAD, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+    <div>
+        <input type="submit" class="btn btn-warning" value="Ekle" />
+    </div>
+</form>
+

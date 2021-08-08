@@ -1,0 +1,17 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TableBrand
+@{
+    ViewBag.Title = "AdminAddBrands";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AdminAddBrands", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationMessageFor(m=>m.BrandName)
+    @Html.TextBoxFor(m=>m.BrandName)
+
+    <input type="submit" class="btn btn-danger" />
+}
+

@@ -1,0 +1,24 @@
+﻿@using MVC_Proje.Models;
+@model KATEGORITABLOSU
+@{
+    ViewBag.Title = "ListByID";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Güncelle", "Kategori", FormMethod.Post))
+{
+
+    <div>
+        <h3 class="page-header">Kategori ID</h3>
+        @Html.TextBoxFor(k => k.KATEGORIID, new { @class = "form-control" })
+    </div>
+    <div>
+        <h3 class="page-header">Kategori Adı</h3>
+        @Html.TextBoxFor(k => k.KATEGORIAD, new { @class = "form-control" })
+    </div>
+    <div>&nbsp;</div>
+    <div>
+        <input type="submit" vale="Güncelle" class="btn btn-danger" />
+    </div>
+}
+

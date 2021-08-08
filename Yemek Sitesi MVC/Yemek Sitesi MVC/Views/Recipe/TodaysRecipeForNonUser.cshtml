@@ -1,0 +1,14 @@
+﻿@using Yemek_Sitesi_MVC.Models
+@model GününYemeğiTablosu
+@{
+    ViewBag.Title = "TodaysRecipeForNonUsers";
+    Layout = "~/Views/Shared/NonUserLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column;align-items:center">
+    @Html.DisplayFor(m => m.GYemekAd)
+    @Html.DisplayFor(m => m.GYemekTarih)
+    <img height="400" width="1000" src="@ViewBag.photo" />
+    @Html.TextAreaFor(m => m.GYemekMalzeme, new { @style = "Width:600px;Height:200px" })
+    @Html.TextAreaFor(m => m.GYemekTarif, new { @style = "Width:600px;Height:200px" })
+</div>

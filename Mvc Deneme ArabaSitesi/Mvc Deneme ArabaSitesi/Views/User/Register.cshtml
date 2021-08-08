@@ -1,0 +1,22 @@
+﻿@using Mvc_Deneme_ArabaSitesi.Models
+@model TableUser
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+
+    @Html.ValidationMessageFor(m => m.UserMail)
+    @Html.TextBoxFor(m => m.UserMail)
+
+
+    @Html.ValidationMessageFor(m => m.UserPassword)
+    @Html.PasswordFor(m => m.UserPassword)
+
+    <input type="submit" value="Register" class="btn btn-danger" />
+}
+

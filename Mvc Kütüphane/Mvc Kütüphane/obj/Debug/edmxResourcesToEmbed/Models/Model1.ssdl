@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KütüphaneProjesiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AlınanKitapTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KitapAlınmaTarihi" Type="date" Nullable="false" />
+    <Property Name="KitabıAlanKullanıcı" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="AlınanKitapAdı" Type="nchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="İadeTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kitapİade" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="Kişiİade" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="Tarihİade" Type="date" />
+  </EntityType>
+  <EntityType Name="KütüphaneKitapTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KitapAdı" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="SayfaSayısı" Type="int" Nullable="false" />
+    <Property Name="Kategori" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Yazar" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="KitapYılı" Type="int" Nullable="false" />
+    <Property Name="KitapAdeti" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KütüphaneKullanıcıTablosu2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GirişBilgisi" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="Şifre" Type="nchar" MaxLength="64" Nullable="false" />
+    <Property Name="Ad" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Rank" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="KitapSayısı" Type="int" Nullable="false" />
+    <Property Name="KitapSüresi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="KütüphaneProjesiModelStoreContainer">
+    <EntitySet Name="AlınanKitapTablosu" EntityType="Self.AlınanKitapTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="İadeTablosu" EntityType="Self.İadeTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KütüphaneKitapTablosu" EntityType="Self.KütüphaneKitapTablosu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KütüphaneKullanıcıTablosu2" EntityType="Self.KütüphaneKullanıcıTablosu2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

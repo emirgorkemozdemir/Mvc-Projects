@@ -1,0 +1,23 @@
+﻿@using Mvc_Car_Selling_Template.Models
+@model Cars
+@{
+    ViewBag.Title = "EditCarAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditCarAdmin", "Car", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.CarID)
+    @Html.TextBoxFor(m => m.CarModel, new { @class = "form-control", placeholder = "Araba modeli giriniz" })
+    @Html.DropDownListFor(m => m.CarBrandID, (List<SelectListItem>)ViewBag.marka, "Marka seçiniz", new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.CarSeller, new { @class = "form-control", placeholder = "Satıcı Adı giriniz" })
+    @Html.TextBoxFor(m => m.CarContact, new { @class = "form-control", placeholder = "Satıcı telefon numaranızı giriniz" })
+    @Html.TextBoxFor(m => m.CarDescription, new { @class = "form-control", placeholder = "Araba ile ilgili açıklama giriniz" })
+    @Html.TextBoxFor(m => m.CarFuelType, new { @class = "form-control", placeholder = "Araba yakıt tipini giriniz" })
+    @Html.TextBoxFor(m => m.CarPhoto, new { @class = "form-control", placeholder = "Araba resim linki giriniz" })
+    @Html.TextBoxFor(m => m.CarPrice, new { @class = "form-control", placeholder = "Araba fiyatını giriniz" })
+    <input type="submit" class="btn btn-danger" />
+
+}
+
+

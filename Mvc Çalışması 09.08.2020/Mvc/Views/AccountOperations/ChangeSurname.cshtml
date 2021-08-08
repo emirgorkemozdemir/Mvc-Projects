@@ -1,0 +1,15 @@
+﻿@model Mvc.Models.Classes.User
+@{
+    ViewBag.Title = "ChangeSurname";
+    Layout = "~/Views/Shared/_LoggedMainLayout.cshtml";
+}
+
+    <div style="display:flex;justify-content:center;align-items:center;">
+        @using (Html.BeginForm("ChangeSurname", "AccountOperations", FormMethod.Post))
+        {
+            @Html.DisplayFor(k => k.UserSurname);
+            @Html.TextBoxFor(k => k.UserSurname, new { @class = "form-control", @placeholder = "Yeni soyismi buraya giriniz" });
+            <input type="submit" value="Değiştir" class="btn btn-danger" />
+        }
+    </div>
+

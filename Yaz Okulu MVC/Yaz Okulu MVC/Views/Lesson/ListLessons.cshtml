@@ -1,0 +1,38 @@
+﻿@using Yaz_Okulu_MVC.Models;
+@model List<DersTablosu>
+@{
+    ViewBag.Title = "ListLessons";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Ders ID</th>
+            <th>Ders Ad</th>
+            <th>Max Kontenjan</th>
+            <th>Min Kontenjan</th>
+            <th>Öğrenci Sayısı</th>
+            <th>Sil</th>
+            <th>Düzenle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+        <tr>
+            <td>@lesson.DersID</td>
+            <td>@lesson.DersAd</td>
+            <td>@lesson.MaxKont</td>
+            <td>@lesson.MinKont</td>
+            <td>@lesson.OgrSayısı</td>
+            <td><a href="/Lesson/DeleteLessons/@lesson.DersID">Sil</a></td>
+            <td><a href="/Lesson/EditLessons/@lesson.DersID">Düzenle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Lesson/AddLessons"><input type="button" class="btn btn-danger" value="Ders Ekle" /></a>
+

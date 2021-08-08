@@ -1,0 +1,34 @@
+﻿@model Mvc_Stok_Takip_Sitesi.Models.Entity.URUNTABLOSU 
+@{
+    ViewBag.Title = "ÜrünEkle";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+    <form  method="post">
+        <div>
+            <label>Ürün Adını giriniz</label>
+            <input class="form-control" type="text" name="URUNAD" />
+        </div>
+
+        <div>
+            <label>Ürün Kategorisini seçiniz</label>
+           @Html.DropDownListFor(m=>m.KATEGORITABLOSU.KATEGORIID ,(List<SelectListItem>)ViewBag.Kategoriler,new {@class ="form-control" })
+
+        </div>
+
+        <div>
+            <label>Ürün Fiyatını giriniz</label>
+            <input class="form-control" type="text" name="URUNFIYAT" />
+        </div>
+
+        <div>
+            <label>Ürün Stoğunu giriniz</label>
+            <input class="form-control" type="text" name="URUNSTOK" />
+        </div>
+
+        <div style="margin-top:15px">
+           <button class="btn btn-danger">Ürün Ekle</button>
+        </div>
+
+    </form>
+

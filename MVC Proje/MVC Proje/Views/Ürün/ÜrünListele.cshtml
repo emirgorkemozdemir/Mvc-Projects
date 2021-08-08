@@ -1,0 +1,37 @@
+﻿@using MVC_Proje.Models
+@model List<URUNTABLOSU>
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Adı</th>
+            <th>Kategori ID</th>
+            <th>Ürün Fiyat</th>
+            <th>Ürün Stok</th>
+            <th>Ürün Sil</th>
+            <th>Ürün Güncelle</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+        <tr>
+            <td>@product.URUNID</td>
+            <td>@product.URUNAD</td>
+            <td>@product.KATEGORIID</td>
+            <td>@product.URUNFIYAT</td>
+            <td>@product.URUNSTOK</td>
+            <td><a href="/Ürün/ÜrünSil/@product.URUNID">Sil</a></td>
+            <td><a href="/Ürün/PListByID/@product.URUNID">Güncelle</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Ürün/ÜrünEkle" class="btn btn-danger">Müşteri ekleme sayfasına git</a>

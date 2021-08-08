@@ -1,0 +1,36 @@
+﻿@using Mvc_Kütüphane.Models
+@model List<KütüphaneKitapTablosu> 
+@{
+    ViewBag.Title = "ListAllBooks";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Kitap Kategorisi</th>
+            <th>Kitap Yazarı</th>
+            <th>Kitap Yılı</th>
+            <th>Sayfa Sayısı</th>
+            <th>Kitap Adeti</th>
+            <th>Sipariş Et</th>
+        </tr>
+    </thead>
+
+    <tbody>
+         @foreach (var book in Model)
+         {
+             <tr>
+                 <td>@book.KitapAdı</td>
+                 <td>@book.Kategori</td>
+                 <td>@book.Yazar</td>
+                 <td>@book.KitapYılı</td>
+                 <td>@book.SayfaSayısı</td>
+                 <td>@book.KitapAdeti</td>
+                 <td><a href="/Books/GetBook/@book.ID" class="btn btn-danger">Kitabı Sipariş Et</a></td>
+             </tr>
+         }
+    </tbody>
+</table>
+
